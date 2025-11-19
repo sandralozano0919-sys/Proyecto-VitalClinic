@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalClinic - Crear Cita</title>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="{% static 'appointments/styles.css' %}">
+
+    <!-- JS externo -->
+    <script src="{% static 'appointments/api.js' %}"></script>
+
+    <!-- CSS interno adicional -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+        }
+        h1 {
+            text-align: center;
+            color: #2a9d8f;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #21867a;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo de VitalClinic -->
+    <div class="logo">
+        <img src="{% static 'appointments/logo.png' %}" alt="VitalClinic">
+    </div>
+
+    <h1>Crear Cita</h1>
+    
+    <label for="nombre">Nombre del Paciente:</label>
+    <input type="text" id="nombre" placeholder="Juan Pérez">
+
+    <label for="tipo_documento">Tipo de Documento:</label>
+    <select id="tipo_documento">
+        <option value="CC">CC</option>
+        <option value="TI">TI</option>
+        <option value="CE">CE</option>
+        <option value="RC">RC</option>
+    </select>
+
+    <label for="numero_documento">Número de Documento:</label>
+    <input type="text" id="numero_documento" placeholder="123456789">
+
+    <label for="fecha">Fecha de la Cita:</label>
+    <input type="date" id="fecha">
+
+    <label for="hora">Hora de la Cita:</label>
+    <input type="time" id="hora">
+
+    <label for="especialidad">Especialidad:</label>
+    <select id="especialidad">
+        <option value="Cardiología">Cardiología</option>
+        <option value="Pediatría">Pediatría</option>
+        <option value="Odontología">Odontología</option>
+        <option value="Medicina General">Medicina General</option>
+    </select>
+
+    <label for="medico">Nombre del Médico:</label>
+    <input type="text" id="medico" placeholder="Dr. Andrés Sánchez">
+
+    <button onclick="crearCita()">Crear Cita</button>
+
+    <div class="message" id="message"></div>
+</div>
+
+</body>
+</html>
